@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../database/index.js')
+// const db = require('../database/index.js')
 const CORS = require('cors');
 
 const app = express();
@@ -32,6 +32,18 @@ app.get('/products:id', (req, res) => {
       })
     }
   })
+}) 
+
+app.post('', (req, res) => { 
+
+})
+
+app.put('', (req, res) => { 
+
+})
+
+app.delete('', (req, res) => { 
+  
 })
 
 app.listen(3003, () => {

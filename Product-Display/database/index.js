@@ -31,6 +31,14 @@ const getProductImages = (id, cb) => {
       cb(null, results)
     }
   })
+} 
+
+const updateProductInfo = (id, cb) => { 
+
+}
+
+const deleteProduct = (id, cb) => { 
+  
 }
 
 module.exports.getProductInfo = getProductInfo;
