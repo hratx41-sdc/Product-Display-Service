@@ -72,7 +72,8 @@ class ProductDisplay extends React.Component{
 	}
 
 	productChange() {
-		Axios.get(`http://ec2-18-216-220-130.us-east-2.compute.amazonaws.com/products${this.state.uuid}`, {
+		Axios.get(`/products${this.state.uuid}`, {
+		// Axios.get(`http://ec2-18-216-220-130.us-east-2.compute.amazonaws.com/products${this.state.uuid}`, {
 			params: {
 				id: this.state.uuid
 			}
