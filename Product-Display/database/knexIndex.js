@@ -11,11 +11,31 @@ const knex = require('knex')({
 }); 
 
 const getProductInfo = (id) => { 
+  let product = {}
   return knex('information')
-    .where('product_id', id )
-    .select() 
+    .where('product_id', id)
+    .select()
+    .then((productInfo) => { 
+      product.info = productInfo;
+    })
+    .then(() => { 
+      return knex('images')
+        .where('product_id', id)
+        .select()
+        .then((productImages) => { 
+          product.images = productImages; 
+          return product;
+        })
+    })
   .catch((err) => err); 
 }
+
+// const getProductInfo = (id) => { 
+//   return knex('information')
+//     .where('product_id', id )
+//     .select() 
+//   .catch((err) => err); 
+// }
 
 const getProductImages = (id) => { 
   return knex('images')
@@ -24,24 +44,24 @@ const getProductImages = (id) => {
   .catch((err) => err);
 } 
 
-const addProduct = (totalInfo) => { 
+const addProduct = (product) => { 
   return knex('information')
-    .insert(totalInfo.product)
+    .insert(product.info)
     .then(() => { 
       return knex('images') 
-        .insert(totalInfo.images, 'product_id')
+        .insert(product.images, 'product_id')
     })
     .catch((err) => err); 
 }
 
-const updateProduct = (id, totalInfo) => { 
+const updateProduct = (id, product) => { 
   return knex('information')
     .where('product_id', id)
-    .update(totalInfo.product)
+    .update(product.info)
     .then(() => { 
       return knex('images') 
         .where('product_id', id)
-        .update(totalInfo.images, 'product_id')
+        .update(product.images, 'product_id')
     })
     .catch((err) => err); 
 }

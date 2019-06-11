@@ -13,24 +13,35 @@ app.use(bodyParser.urlencoded({ extended : true }));
 app.use(express.static('./client/public')) 
 
 app.get('/products/:id', (req, res) => { 
-  let totalInfo = {}; 
   db.getProductInfo(req.params.id)
-    .then(productInfo => { 
-      totalInfo.product = productInfo; 
-    })
-    .then(() => { 
-      db.getProductImages(req.params.id)
-        .then(productImages => { 
-          // console.log(productImages);
-          totalInfo.images = productImages; 
-          res.send(totalInfo)
-        })
+    .then((productInfo) => { 
+      res.send(productInfo)
     })
     .catch(err => { 
-      console.log(err);
-      res.status(400).send()
-    }); 
+      res.send(err)
+    });
 }); 
+
+
+// app.get('/products/:id', (req, res) => { 
+//   let product = {}; 
+//   db.getProductInfo(req.params.id)
+//     .then(productInfo => { 
+//       product.info = productInfo; 
+//     })
+//     .then(() => { 
+//       db.getProductImages(req.params.id)
+//         .then(productImages => { 
+//           // console.log(productImages);
+//           product.images = productImages; 
+//           res.send(product)
+//         })
+//     })
+//     .catch(err => { 
+//       console.log(err);
+//       res.status(400).send()
+//     }); 
+// }); 
 
 app.post('/products', (req, res) => { 
   db.addProduct(req.body)
