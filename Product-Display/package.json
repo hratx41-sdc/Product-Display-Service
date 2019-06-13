@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "nodemon ./server/mongoServer.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "react-dev": "webpack -p --watch"
@@ -24,6 +24,7 @@
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
     "knex": "^0.17.3",
+    "mongoose": "^5.5.14",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.0",
     "pg": "^7.11.0",

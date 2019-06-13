@@ -101,3 +101,22 @@ app.listen(3003, () => {
 //       "img_7": "http://lorempixel.com/640/480/" 
 //     }
 // }
+
+// BELOW syntax/for expected for POST/PUT reqs. 
+// FOR MONGO
+// {
+//   "product_id": 1,
+//   "name": "Tasty Steel Computer",
+//   "description": "Sed reprehenderit debitis beatae aut provident ratione tempora in incidunt. Repellendus ut itaque odio similique. Quia distinctio molestiae ullam veniam tenetur reprehenderit sed.",
+//   "cost": "50.00",
+//   "reviews": 11,
+//   "average_review": 1,
+//   "images": {
+//     "img_1": "http://lorempixel.com/640/480/fashion/",
+//     "img_2": "http://lorempixel.com/640/480/fashion/",
+//     "img_3": "http://lorempixel.com/640/480/fashion/",
+//     "img_4": "http://lorempixel.com/640/480/fashion/",
+//     "img_5": "http://lorempixel.com/640/480/fashion/",
+//     "img_6": "http://lorempixel.com/640/480/fashion/",
+//     "img_7": "http://lorempixel.com/640/480/fashion/"
+//   }
